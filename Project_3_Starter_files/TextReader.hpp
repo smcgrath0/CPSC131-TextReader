@@ -47,7 +47,7 @@ void TextReader::readIn(const string& filename) {
 
             if (isEndPunctuation(newWord[newWord.length() - 1])) {
               	string punc = std::string(1, newWord[newWord.length() - 1]);
-                string firstpart = newWord.substr(0, ( newWord.length() - 2 ));
+                string firstpart = newWord.substr(0, ( newWord.length() - 1 ));
 
                 std::map<string,vector<string>>::iterator it = wordFollowers.find(oldWord);
                 if (it != wordFollowers.end()) {
@@ -66,12 +66,12 @@ void TextReader::readIn(const string& filename) {
 
             } else {
                 std::vector<string> vec = {};
-                wordFollowers.insert(std::pair<string,vector<string>>(newWord,{}));
+                wordFollowers.insert(std::pair<string,vector<string>>(oldWord,{newWord}));
                 oldWord = newWord;  
             }
 
             myReadFile >> output;
-            cout<<output;
+            cout<<output << "\n";
 
 
         }
