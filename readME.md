@@ -1,5 +1,5 @@
-#**Project 3: Text Reader**
-##CPSC 131 Spring 2022
+**Project 3: Text Reader**
+CPSC 131 Spring 2022
 
 The main idea is to break sentences into words and store every word with all of its following words in a data structure.
 
@@ -15,7 +15,7 @@ size_t howManyfollowers(const string &) - See hints.
 
 --- 
 
-##**Results:** 
+**Results:** 
 
 >PASSED '.' is Punctuation :: expected and actual '1'
 >PASSED '?' is Punctuation :: expected and actual '1'
