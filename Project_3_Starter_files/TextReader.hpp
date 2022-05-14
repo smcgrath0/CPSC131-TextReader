@@ -43,37 +43,55 @@ void TextReader::readIn(const string& filename) {
     if (myReadFile.is_open()) {
         while (!myReadFile.eof()) {
 
+            myReadFile >> newWord;
+
             sanitize(newWord);
+
+            std::map<string,vector<string>>::iterator it = wordFollowers.find(oldWord);
 
             if (isEndPunctuation(newWord[newWord.length() - 1])) {
               	string punc = std::string(1, newWord[newWord.length() - 1]);
                 string firstpart = newWord.substr(0, ( newWord.length() - 1 ));
 
-                std::map<string,vector<string>>::iterator it = wordFollowers.find(oldWord);
-                if (it != wordFollowers.end()) {
-                    it->second.push_back(firstpart);
+                std::map<string,vector<string>>::iterator itpunc = wordFollowers.find(oldWord);
+
+                std::vector<string>::iterator it3;
+
+                if (itpunc != wordFollowers.end()) {
+
+                        itpunc->second.push_back(firstpart);                
+                } else {
+                    wordFollowers.insert(std::pair<string,vector<string>>(oldWord,{firstpart}));
                 }
 
-                it = wordFollowers.find(firstpart);
-                if (it != wordFollowers.end()) {
-                    it->second.push_back(punc);
+                itpunc = wordFollowers.find(firstpart);
+                if (itpunc != wordFollowers.end()) {
+                    itpunc->second.push_back(punc);
+                } else {
+                    wordFollowers.insert(std::pair<string,vector<string>>(firstpart,{punc}));
                 }
 
-                it = wordFollowers.find(punc);
-                if (it != wordFollowers.end()) {
-                    it->second.push_back("$");
+                itpunc = wordFollowers.find(punc);
+                if (itpunc != wordFollowers.end()) {
+                    itpunc->second.push_back("$");
+                } else {
+                    wordFollowers.insert(std::pair<string,vector<string>>(punc,{"$"}));
                 }
+
+                oldWord = "^";
+
+            } else if (it != wordFollowers.end()) {
+
+                it->second.push_back(newWord);
+                oldWord = newWord;  
 
             } else {
+                
                 std::vector<string> vec = {};
                 wordFollowers.insert(std::pair<string,vector<string>>(oldWord,{newWord}));
                 oldWord = newWord;  
+                
             }
-
-            myReadFile >> output;
-            cout<<output << "\n";
-
-
         }
     }
     myReadFile.close();
@@ -81,7 +99,7 @@ void TextReader::readIn(const string& filename) {
 
 
 bool TextReader::isEndPunctuation(const char& character) {
-    if (ispunct(character))
+    if (character == '.' || character == '?' || character == '!')
         return true;
     return false;
 }
