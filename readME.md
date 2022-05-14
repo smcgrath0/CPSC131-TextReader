@@ -17,22 +17,22 @@ size_t howManyfollowers(const string &) - See hints.
 
 **Results:** 
 
->PASSED '.' is Punctuation :: expected and actual '1'
->PASSED '?' is Punctuation :: expected and actual '1'
->PASSED '!' is Punctuation :: expected and actual '1'
->PASSED 'a' is Punctuation :: expected and actual '0'
->PASSED Values : Frankenstein 'youthful': expected and actual lists match: { lovers, days lovers }
->PASSED Values : Frankenstein 'marked': expected and actual lists match: { out the the by in their on }
->PASSED Value Count : Frankenstein '^' > 0: : expected and actual '1'
->PASSED Searching : Frankenstein 'rejoice' found: expected and actual '1'
->PASSED Followers Count : Frankenstein 'breeze': expected and actual '8'
->PASSED Followers Count : Frankenstein 'river': expected and actual '9'
->PASSED Values : SleepyHollow 'woody': expected and actual lists match: { hill, crests dell, }
->PASSED Values : SleepyHollow 'quarter': expected and actual lists match: { which of of }
->PASSED Value Count : SleepyHollow '^' < 0: expected and actual '0'
->PASSED Searching : SleepyHollow 'complexity' found: expected and actual '0'
->PASSED Followers Count : SleepyHollow 'complexity': expected and actual '0'
->PASSED Followers Count : SleepyHollow 'river': expected and actual '2'
->
->16 tests passed out of 16 total tests
->100/100
+-PASSED '.' is Punctuation :: expected and actual '1'
+-PASSED '?' is Punctuation :: expected and actual '1'
+-PASSED '!' is Punctuation :: expected and actual '1'
+-PASSED 'a' is Punctuation :: expected and actual '0'
+-PASSED Values : Frankenstein 'youthful': expected and actual lists match: { lovers, days lovers }
+-PASSED Values : Frankenstein 'marked': expected and actual lists match: { out the the by in their on }
+-PASSED Value Count : Frankenstein '^' - 0: : expected and actual '1'
+-PASSED Searching : Frankenstein 'rejoice' found: expected and actual '1'
+-PASSED Followers Count : Frankenstein 'breeze': expected and actual '8'
+-PASSED Followers Count : Frankenstein 'river': expected and actual '9'
+-PASSED Values : SleepyHollow 'woody': expected and actual lists match: { hill, crests dell, }
+-PASSED Values : SleepyHollow 'quarter': expected and actual lists match: { which of of }
+-PASSED Value Count : SleepyHollow '^' < 0: expected and actual '0'
+-PASSED Searching : SleepyHollow 'complexity' found: expected and actual '0'
+-PASSED Followers Count : SleepyHollow 'complexity': expected and actual '0'
+-PASSED Followers Count : SleepyHollow 'river': expected and actual '2'
+-
+-16 tests passed out of 16 total tests
+-100/100
